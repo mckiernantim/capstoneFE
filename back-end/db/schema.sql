@@ -1,6 +1,16 @@
-DROP TABLE IF EXISTS test;
+DROP DATABASE IF EXISTS connect;
+CREATE DATABASE connect;
 
-CREATE TABLE test (
-    id SERIAL PRIMARY KEY, 
-    name TEXT
+\c connect;
+
+DROP TABLE IF EXISTS users;
+
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    firstname TEXT NOT NULL,
+    lastname TEXT NOT NULL,
+    email TEXT NOT NULL,
+    phone NUMERIC,
+    linkedin TEXT,
+    uid TEXT NOT NULL
 );
