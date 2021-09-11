@@ -1,6 +1,8 @@
 // DEPENDENCIES
 const cors = require("cors");
 const express = require("express");
+const usersController = require("./Controllers/usersController
+")
 
 // CONFIGURATION
 const app = express();
@@ -10,8 +12,10 @@ app.use(cors());
 app.use(express.json()); // Parse incoming JSON
 
 // ROUTES
+app.use("/users", usersController);
+
 app.get("/", (req, res) => {
-  res.send("Hello, world!");
+  res.send("Welcome to Connect App");
 });
 
 /////////////////////////////////////
