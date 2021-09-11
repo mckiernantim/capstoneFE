@@ -23,6 +23,9 @@ export const Dashboard = () => {
       setColor(e.target.value)
   }
 
+  // const getSingleUser = async() => {
+  //   await get(`http://localhost:3001/users/:id`)
+  // }
 
   useEffect(() => { 
       if(!user){

@@ -20,4 +20,13 @@ users.post("/", async (req, res) => {
   }
 });
 
+users.get("/:id", async (req, res) => {
+  try {
+    const user = await getUser(req.params.id);
+    res.json(user);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 module.exports = users;

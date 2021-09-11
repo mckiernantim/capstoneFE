@@ -25,7 +25,17 @@ const addUser = async (user) => {
   }
 };
 
+// const getUserById = async (id) => {
+//   try {
+//     const userById = await db.one("SELECT * FROM users WHERE id = $1", id);
+//     return userById;
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+
 module.exports = {
   addUser,
   getUsers
+  // getUserById
 };
