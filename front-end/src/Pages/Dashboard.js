@@ -15,13 +15,17 @@ export const Dashboard = () => {
       e.preventDefault()
       setColor(e.target.value)
 
-      axios.post(`https://secret-temple-11924.herokuapp.com`, {color: color, uid:user.uid})
+      // axios.post(`https://secret-temple-11924.herokuapp.com`, {color: color, uid:user.uid})
+      axios.post(`http://localhost:3001/users`, {color: color, uid:user.uid})
   }
 
   const handleChange = (e) => {
       setColor(e.target.value)
   }
 
+  // const getSingleUser = async() => {
+  //   await get(`http://localhost:3001/users/:id`)
+  // }
 
   useEffect(() => { 
       if(!user){
