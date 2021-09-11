@@ -15,10 +15,10 @@
 --     uid TEXT NOT NULL
 -- );
 
-DROP DATABASE IF EXISTS connect;
-CREATE DATABASE connect;
+-- DROP DATABASE IF EXISTS connect;
+-- CREATE DATABASE connect;
 
-\c connect;
+-- \c connect;
 
 DROP TABLE IF EXISTS users;
 

@@ -1,6 +1,15 @@
 const express = require("express");
 const users = express.Router();
-const { addUser } = require("../Queries/Users");
+const { addUser, getUsers } = require("../Queries/Users");
+
+users.get("/", async (req, res) => {
+  try {
+    const allUsers = await getUsers();
+    res.json(allUsers);
+  } catch (error) {
+    console.log(error);
+  }
+});
 
 users.post("/", async (req, res) => {
   try {
