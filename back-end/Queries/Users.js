@@ -2,15 +2,21 @@ const db = require("../db/dbConfig");
 
 
 // QUERY FOR POST ROUTE
-const addSnack = async (users) => {
-    const { name, fiber, protein, added_sugar, is_healthy, image } = users;
+const addUser = async (user) => {
+    const { color, uid } = user;
     try {
-      const users = await db.one(
-        "INSERT INTO snacks ( firstname, lastname, email, phone,fiber, protein, added_sugar, is_healthy, image ) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
-        [ capitalize(name), fiber, protein, added_sugar, is_healthy, image ]
+      const user = await db.one(
+        "INSERT INTO users ( color, uid ) VALUES ($1, $2) RETURNING *",
+        [ color, uid ]
       );
-      return { success: true, payload: users };
+    //   return { success: true, payload: user };
+      return user;
     } catch (error) {
-      return { success: false, payload: "must include required" };
+    //   return { success: false, payload: "must include required" };
+      console.log(error);
     }
   };
+
+  module.exports = {
+      addUser
+  }
