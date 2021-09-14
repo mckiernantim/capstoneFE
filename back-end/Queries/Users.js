@@ -29,7 +29,7 @@ const addUser = async (user) => {
 // SHOW
 const getUserById = async (uid) => {
   try {
-    const userById = await db.one("SELECT * FROM users WHERE uid = $1", uid);
+    const userById = await db.one("SELECT * FROM users WHERE uid = $1 RETURNING *", uid);
     return userById;
   } catch (error) {
     console.log(error);
@@ -40,7 +40,7 @@ const getUserById = async (uid) => {
 const updateUserById = async (uid, body) => {
   const { color } = body;
   try {
-    const updateUser = await db.one("UPDATE users SET color=$1, uid=$2", [color, uid]);
+    const updateUser = await db.one("UPDATE users SET color=$1 WHERE uid = $2 RETURNING *", [color, uid]);
     return updateUser;
   } catch (error) {
     console.log(error);
