@@ -7,6 +7,7 @@ export const Login = () => {
   const user = useContext(UserContext)
   const history = useHistory();
   useEffect(() => {
+    console.log(user);
       if(user){
           history.push("dashboard")
       }

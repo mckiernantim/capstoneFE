@@ -1,5 +1,6 @@
 const db = require("../db/dbConfig");
 
+// INDEX
 const getUsers = async () => {
   try {
     const users = await db.any("SELECT * FROM users");
@@ -25,17 +26,41 @@ const addUser = async (user) => {
   }
 };
 
-// const getUserById = async (id) => {
-//   try {
-//     const userById = await db.one("SELECT * FROM users WHERE id = $1", id);
-//     return userById;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+// SHOW
+const getUserById = async (uid) => {
+  try {
+    const userById = await db.one("SELECT * FROM users WHERE uid = $1 RETURNING *", uid);
+    return userById;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// UPDATE
+const updateUserById = async (uid, body) => {
+  const { color } = body;
+  try {
+    const updateUser = await db.one("UPDATE users SET color=$1 WHERE uid = $2 RETURNING *", [color, uid]);
+    return updateUser;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// DELETE
+const deleteUser = async (uid) => {
+  try {
+    const deletedUser = await db.one("DELETE * FROM users WHERE uid = $1", uid);
+    return deletedUser;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 module.exports = {
   addUser,
-  getUsers
-  // getUserById
+  getUsers,
+  getUserById,
+  deleteUser,
+  updateUserById
 };

@@ -1,7 +1,8 @@
 const express = require("express");
 const users = express.Router();
-const { addUser, getUsers } = require("../Queries/Users");
+const { addUser, getUsers, getUserById, deleteUser, updateUserById } = require("../Queries/Users");
 
+// INDEX
 users.get("/", async (req, res) => {
   try {
     const allUsers = await getUsers();
@@ -11,6 +12,7 @@ users.get("/", async (req, res) => {
   }
 });
 
+// CREATE
 users.post("/", async (req, res) => {
   try {
     const newUser = await addUser(req.body);
@@ -20,13 +22,34 @@ users.post("/", async (req, res) => {
   }
 });
 
+// SHOW
 users.get("/:id", async (req, res) => {
   try {
-    const user = await getUser(req.params.id);
+    const user = await getUserById(req.params.id);
     res.json(user);
   } catch (error) {
     console.log(error);
   }
 });
+
+// UPDATE
+users.put("/:id", async (req, res) => {
+  try {
+    const user = await updateUserById(req.params.id, req.body)
+    res.json(user)
+  } catch (error) {
+    console.log(error);
+  }
+})
+
+// DELETE 
+users.delete("/:id", async (req, res) => {
+  try {
+    const user = await deleteUser(req.params.id);
+    res.json(user);
+  } catch (error) {
+    console.log(error);
+  }
+})
 
 module.exports = users;

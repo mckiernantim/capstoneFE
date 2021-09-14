@@ -23,9 +23,16 @@ export const Dashboard = () => {
       setColor(e.target.value)
   }
 
-  // const getSingleUser = async() => {
-  //   await get(`http://localhost:3001/users/:id`)
-  // }
+  const getSingleUser = async() => {
+    axios.get(`http://localhost:3001/users/${user.uid}`);
+  }
+  // console.log(getSingleUser());
+
+  const deleteSingleUser = async() => {
+    axios.delete(`http://localhost:3001/users/${user.uid}`);
+  }
+
+  // console.log(deleteSingleUser());
 
   useEffect(() => { 
       if(!user){
