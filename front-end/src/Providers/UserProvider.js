@@ -4,6 +4,7 @@ export const UserContext = createContext()
 
 export const UserProvider =  (props) => {
     const [user, setUser] = useState(null);
+    
     useEffect(() => {
       auth.onAuthStateChanged(async (user) => {
         if(user){
@@ -20,7 +21,8 @@ export const UserProvider =  (props) => {
 
         }
       })
-    }, []) 
+    }, [])
+
     return (
       <div>
         <UserContext.Provider value = {user}>
