@@ -24,6 +24,7 @@ DROP TABLE IF EXISTS users;
 
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
-    color TEXT,
+    linkedin TEXT,
+    twitter TEXT,
     uid TEXT NOT NULL
 );

@@ -9,18 +9,18 @@ export const Dashboard = () => {
   let history = useHistory();
   const user = useContext(UserContext)
   
-  const [color, setColor] =useState("")
+  const [linkedin, setLinkedin] =useState("")
   
   const handleSubmit = (e) => {
       e.preventDefault()
-      setColor(e.target.value)
+      setLinkedin(e.target.value)
 
       // axios.post(`https://secret-temple-11924.herokuapp.com`, {color: color, uid:user.uid})
-      axios.post(`http://localhost:3001/users`, {color: color, uid:user.uid})
+      axios.post(`http://localhost:3001/users`, {linkedin: linkedin, uid:user.uid})
   }
 
   const handleChange = (e) => {
-      setColor(e.target.value)
+      setLinkedin(e.target.value)
   }
 
   const getSingleUser = async() => {
@@ -63,8 +63,8 @@ export const Dashboard = () => {
           <h1>WE KNOW WHAT YOU LOOK LIKE</h1>
 
           <form action="" onSubmit={handleSubmit}>
-              <label htmlFor="">favorite color</label>
-              <input type="text"  value={color} onChange={handleChange}/>
+              <label htmlFor=""> linkedin</label>
+              <input type="text"  value={linkedin} onChange={handleChange}/>
               <button type="submit">submit</button>
 
           </form>
