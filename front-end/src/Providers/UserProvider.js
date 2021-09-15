@@ -9,11 +9,12 @@ export const UserProvider =  (props) => {
       auth.onAuthStateChanged(async (user) => {
         if(user){
           console.log(user)
-          const {email, displayName, photoURL, uid} = user
+          const {email, displayName, photoURL, phoneNumber, uid} = user
           setUser({
             email, 
             displayName,
             photoURL,
+            phoneNumber,
             uid
           })
         } else {

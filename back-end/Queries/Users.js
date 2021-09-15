@@ -12,11 +12,11 @@ const getUsers = async () => {
 
 // QUERY FOR POST ROUTE
 const addUser = async (user) => {
-  const { linkedin, twitter, uid } = user;
+  const { linkedin, twitter, email, displayName, photoURL, phoneNumber, uid } = user;
   try {
     const user = await db.one(
-      "INSERT INTO users ( linkedin, twitter, uid ) VALUES ($1, $2, $3) RETURNING *",
-      [linkedin, twitter, uid]
+      "INSERT INTO users ( linkedin, twitter, email, displayName, photoURL, phoneNumber, uid ) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *",
+      [linkedin, twitter,  email, displayName, photoURL, phoneNumber, uid]
     );
     return {success: true, payload:user};
   } catch (error) {
@@ -36,9 +36,9 @@ const getUserById = async (uid) => {
 
 // UPDATE
 const updateUserById = async (uid, body) => {
-  const { linkedin, twitter } = body;
+  const { linkedin, twitter,  email, displayName, photoURL, phoneNumber } = body;
   try {
-    const updateUser = await db.one("UPDATE users SET linkedin=$1, twitter=$2 WHERE uid = $3 RETURNING *", [linkedin, twitter,  uid]);
+    const updateUser = await db.one("UPDATE users SET linkedin=$1, twitter=$2,  email=$3, displayName=$4, photoURL=$5, phoneNumber=$6 WHERE uid = $7 RETURNING *", [linkedin, twitter,  email, displayName, photoURL, phoneNumber,  uid]);
     return {success: true, payload: updateUser};
   } catch (error) {
    return { success: false, payload: error}

@@ -26,5 +26,10 @@ CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     linkedin TEXT,
     twitter TEXT,
+    email TEXT,
+    displayName TEXT, 
+    photoURL TEXT,
+    phoneNumber NUMERIC,
+
     uid TEXT NOT NULL
 );

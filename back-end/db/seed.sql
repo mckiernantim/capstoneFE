@@ -1,3 +1,3 @@
-INSERT INTO users (linkedin, twitter, uid)
-VALUES ('https://www.linkedin.com/in/carlos/','twitteraccount', 'JzsbUy5H7tMu2Hs0Y7mFzVk41oC2'),
-('https://www.linkedin.com/in/coreen/', '@coreentwitter', '2125551234')
+INSERT INTO users (linkedin, twitter,  email , displayName , photoURL ,phoneNumber ,uid)
+VALUES ('https://www.linkedin.com/in/carlos/','twitteraccount', 'fajsg@aol.com', 'BBadBunny', 'https://picsum.photos/200/300', 34515413, 'JzsbUy5H7tMu2Hs0Y7mFzVk41oC2'),
+('https://www.linkedin.com/in/coreen/', '@coreentwitter', 'fadfhjk@gmail.com', 'George Washington', 'https://picsum.photos/200/300', 12312414141, '2125551234')

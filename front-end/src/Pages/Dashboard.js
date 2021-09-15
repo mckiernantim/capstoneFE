@@ -54,6 +54,7 @@ export const Dashboard = () => {
       <h1> YOU ARE NOW LOGGED IN</h1>
       <h1>Welcome {user.display}!</h1>
       <h1> WE KNOW YOUR EMAIL : {user.email}  !</h1>
+      <h1>we know your number ... {user.phoneNumber? user.phoneNumber : "no number found"}</h1>
       <div>
         <img
           className="user-image"
@@ -62,12 +63,12 @@ export const Dashboard = () => {
           ></img>
           <h1>WE KNOW WHAT YOU LOOK LIKE</h1>
 
-          <form action="" onSubmit={handleSubmit}>
+          {/* <form action="" onSubmit={handleSubmit}>
               <label htmlFor=""> linkedin</label>
               <input type="text"  value={linkedin} onChange={handleChange}/>
               <button type="submit">submit</button>
 
-          </form>
+          </form> */}
       </div>
 
       <button onClick={handleLogout}> LOG OUT</button>
