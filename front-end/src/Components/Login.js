@@ -5,7 +5,7 @@ import { UserContext } from "../Providers/UserProvider";
 import { signInWithGoogle, signOut } from "../Services/Firebase";
 import { apiURL } from "../util/apiURL";
 
-const API = apiURL()
+const API = apiURL();
 
 export const Login = () => {
   const user = useContext(UserContext);

@@ -3,7 +3,7 @@
 // import { apiURL } from "./util/apiURL.js";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { LoginPage } from "./Pages/LoginPage";
-import { Dashboard } from "./Pages/Dashboard";
+import { Dashboard } from "./Components/Dashboard";
 import { UserProvider } from "./Providers/UserProvider.js";
 // import { UserContext } from "./Providers/UserProvider.js";
 
