@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useContext, useEffect} from "react";
+import React, { useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { UserContext } from "../Providers/UserProvider";
 import { signInWithGoogle, signOut } from "../Services/Firebase";
@@ -8,50 +8,47 @@ import { apiURL } from "../util/apiURL";
 const API = apiURL()
 
 export const Login = () => {
-  const user = useContext(UserContext)
-
-  // console.log("user" + user)
+  const user = useContext(UserContext);
   const history = useHistory();
 
-  useEffect(() => {
-    if(user){
-        // console.log("%%%%%%%%"+ user.displayName);
-         addNewUser(user)
+  const addNewUser = async (user) => {
+    const { uid, displayName } = user;
+    try {
+      await axios.post(`${API}/users`, {
+        uid: uid,
+        displayName: displayName,
+      });
+    } catch (error) {
+      return error;
+    }
+  };
 
-          history.push("dashboard")
-      }
+  const handleSignIn = async () => {
+    await signInWithGoogle();
+    // console.log(user);
+    // console.log("this is user");
+    // addNewUser(user)
+    // console.log("help" + user);
+  };
+
+  const handleSignOut = async () => {
+    signOut();
+  };
+
+  useEffect(() => {
+    if (user) {
+      addNewUser(user);
+      history.push("dashboard");
+    }
   }, [user, history]);
 
-const handleSignIn = async () =>{
-    await signInWithGoogle()
-    console.log(user)
-    console.log("this is user")
-    // addNewUser(user)
-    console.log("help"+user)
-
-    // console.log("&&&&&&&" + addNewUser(user))
-}
-
-const handleSignOut = async () =>{
-    signOut()
-}
-
-
-const addNewUser = async () => {
-  try {
-    await axios.post(`http://localhost:3001/users`, {uid:user.uid, displayName:user.displayName})
-  } catch (error) {
-    console.log( error)
-  }
-}
- return (
+  return (
     <div>
-      <h1>Sign in with google!</h1>
+      <h1>Welcome the Connect App!</h1>
       <button onClick={handleSignIn}>
-        <span> Continue with Google</span>
-    </button>
-
-    <button onClick={handleSignOut}>Log out</button>
+        <span> Sign in with Google</span>
+      </button>
+      <button onClick={handleSignOut}>Log out</button>
     </div>
   );
-}
+};
