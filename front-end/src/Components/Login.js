@@ -12,11 +12,16 @@ export const Login = () => {
   const history = useHistory();
 
   const addNewUser = async (user) => {
-    const { uid, displayName } = user;
+    const { uid, displayName, linkedin, twitter, email, photoURL, phoneNumber } = user;
     try {
       await axios.post(`${API}/users`, {
         uid: uid,
         displayName: displayName,
+        linkedin: linkedin,
+        twitter: twitter,
+        email: email,
+        photoURL: photoURL,
+        phoneNumber: phoneNumber,
       });
     } catch (error) {
       return error;
@@ -31,9 +36,9 @@ export const Login = () => {
     // console.log("help" + user);
   };
 
-  const handleSignOut = async () => {
-    signOut();
-  };
+  // const handleSignOut = async () => {
+  //   signOut();
+  // };
 
   useEffect(() => {
     if (user) {
@@ -43,12 +48,11 @@ export const Login = () => {
   }, [user, history]);
 
   return (
-    <div>
+    <section>
       <h1>Welcome the Connect App!</h1>
       <button onClick={handleSignIn}>
-        <span> Sign in with Google</span>
+        Sign in with Google
       </button>
-      <button onClick={handleSignOut}>Log out</button>
-    </div>
+    </section>
   );
 };
