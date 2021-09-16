@@ -11,7 +11,7 @@ import { UserProvider } from "./Providers/UserProvider.js";
 
 function App() {
   return (
-    <div>
+    <section className="App">
       <UserProvider>
         <Router>
           <Switch>
@@ -24,7 +24,7 @@ function App() {
           </Switch>
         </Router>
       </UserProvider>
-    </div>
+    </section>
   );
 }
 

@@ -51,7 +51,7 @@ export const Dashboard = () => {
   }
 
   return (
-    <section>
+    <section className="dashboard">
       <h1>Welcome {user.displayName}</h1>
       <div>
         <img src={user.photoURL} alt={user.displayName} />

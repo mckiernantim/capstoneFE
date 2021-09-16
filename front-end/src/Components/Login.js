@@ -1,8 +1,8 @@
 import axios from "axios";
-import React, { useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { UserContext } from "../Providers/UserProvider";
-import { signInWithGoogle, signOut } from "../Services/Firebase";
+import { signInWithGoogle } from "../Services/Firebase";
 import { apiURL } from "../util/apiURL";
 
 const API = apiURL();
@@ -48,7 +48,7 @@ export const Login = () => {
   }, [user, history]);
 
   return (
-    <section>
+    <section className="Login-msg">
       <h1>Welcome the Connect App!</h1>
       <button onClick={handleSignIn}>
         Sign in with Google
