@@ -8,7 +8,7 @@ users.get("/", async (req, res) => {
     const allUsers = await getUsers();
     res.json(allUsers);
   } catch (error) {
-    console.log(error);
+    return error;
   }
 });
 
@@ -18,7 +18,7 @@ users.post("/", async (req, res) => {
     const newUser = await addUser(req.body);
     res.json(newUser);
   } catch (error) {
-    console.log(error);
+    return error;
   }
 });
 
@@ -28,7 +28,7 @@ users.get("/:id", async (req, res) => {
     const user = await getUserById(req.params.id);
     res.json(user);
   } catch (error) {
-    console.log(error);
+    return error;
   }
 });
 
@@ -38,7 +38,7 @@ users.put("/:id", async (req, res) => {
     const user = await updateUserById(req.params.id, req.body)
     res.json(user)
   } catch (error) {
-    console.log(error);
+    return error;
   }
 })
 
@@ -48,7 +48,7 @@ users.delete("/:id", async (req, res) => {
     const user = await deleteUser(req.params.id);
     res.json(user);
   } catch (error) {
-    console.log(error);
+    return error;
   }
 })
 
