@@ -1,3 +1,4 @@
+const connections = require("../Controllers/connectionsController");
 const db = require("../db/dbConfig");
 
 // INDEX
@@ -63,10 +64,56 @@ const deleteUser = async (uid) => {
   }
 };
 
+///users/:id/connections
+//GET list of all connections by user
+const getAllConnectionsForUser = async (uid) => {
+  try {
+    const connectionsByUser = await db.any(
+      ` SELECT displayName FROM users JOIN connections ON users.uid = connections.user1_id OR users.uid = connections.user2_id
+        WHERE ( connections.user1_id=$1 OR connections.user2_id=$1) 
+        AND users.uid != $1`, uid
+    )
+    return connectionsByUser
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+//add a connection to user's collection
+//POST /users/:id/connections/:connections_id
+const addNewConnectionToUser = async (user1_id, user2_id) => {
+  try {
+    let add = await db.none(
+      `INSERT INTO connections (user1_id, user2_id) VALUES ($1, $2)`,
+      [user1_id, user2_id]
+    )
+    return !add
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+//delete a connection from a user's collection
+//DELETE /users/:id/connections/:connections_id
+
+const deleteConnectionFromUser = async (user1_id, user2_id) => {
+  try {
+    let remove = await db.none(
+      `DELETE FROM connections WHERE user1_id=$1 AND user2_id=$2`, 
+      [user1_id, user2_id]
+    )
+    return !remove
+  } catch (error) {
+    console.log(error)
+  }
+}
 module.exports = {
   addUser,
   getUsers,
   getUserById,
   deleteUser,
   updateUserById,
+  getAllConnectionsForUser,
+  addNewConnectionToUser, 
+  deleteConnectionFromUser
 };
