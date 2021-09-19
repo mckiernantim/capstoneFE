@@ -1,12 +1,12 @@
-\c connect
+\c connect;
 
 INSERT INTO users (
         linkedin,
         twitter,
         email,
-        displayName,
-        photoURL,
-        phoneNumber,
+        display_name,
+        photo_url,
+        phone_number,
         uid
     )
 VALUES (
@@ -16,7 +16,7 @@ VALUES (
         'CarlosH',
         'https://picsum.photos/200/300',
         7185551234,
-        'JzsbUy5H7tMu2Hs0Y7mFzVk41oC2'
+        'szyR5ui895Toro3cnm75MJKOYkf1'
     ),
     (
         'https://www.linkedin.com/in/coreen/',
@@ -25,7 +25,7 @@ VALUES (
         'CCooper',
         'https://picsum.photos/200/300',
         2125551234,
-        '2987uyh4ry89o3ikjwjhued8r3iwk'
+        'MPDX3EZoeQR4ccZEPOtXKBkrtd03'
     ),
     (
         'https://www.linkedin.com/in/jessica/',
@@ -34,7 +34,7 @@ VALUES (
         'JessN',
         'https://picsum.photos/200/300',
         3475551234,
-        '0928u3j4nrhfu7y63th4n5tjgfiid'
+        'OUO4QH8PETgcO5TAECPxz4K16VF3'
     ), (
         'https://www.linkedin.com/in/poonam/',
         '@poonam',
@@ -42,23 +42,24 @@ VALUES (
         'PDass',
         'https://picsum.photos/200/300',
         9175551234,
-        'n5rkio92ij3nedixc9oqk234'
+        'JzsbUy5H7tMu2Hs0Y7mFzVk41oC2'
+        
     );
 
 INSERT INTO connections (
     user1_id, user2_id
 )
 VALUES (
-        'JzsbUy5H7tMu2Hs0Y7mFzVk41oC2', 
-        '2987uyh4ry89o3ikjwjhued8r3iwk'
+        'OUO4QH8PETgcO5TAECPxz4K16VF3', 
+        'szyR5ui895Toro3cnm75MJKOYkf1'
         
     ),(
-        '0928u3j4nrhfu7y63th4n5tjgfiid',
-        'JzsbUy5H7tMu2Hs0Y7mFzVk41oC2'
+        'MPDX3EZoeQR4ccZEPOtXKBkrtd03',
+        'szyR5ui895Toro3cnm75MJKOYkf1'
         
     ),(
-        '2987uyh4ry89o3ikjwjhued8r3iwk',
-        '0928u3j4nrhfu7y63th4n5tjgfiid'
+        'JzsbUy5H7tMu2Hs0Y7mFzVk41oC2',
+        'MPDX3EZoeQR4ccZEPOtXKBkrtd03'
         
     );
 

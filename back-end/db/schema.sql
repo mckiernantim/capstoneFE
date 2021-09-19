@@ -10,9 +10,9 @@ CREATE TABLE users (
     linkedin TEXT,
     twitter TEXT,
     email TEXT,
-    displayName TEXT, 
-    photoURL TEXT,
-    phoneNumber NUMERIC,
+    display_name TEXT, 
+    photo_url TEXT,
+    phone_number NUMERIC,
     uid TEXT NOT NULL PRIMARY KEY
 );
 
