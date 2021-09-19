@@ -2,7 +2,7 @@
 const cors = require("cors");
 const express = require("express");
 const usersController = require("./Controllers/usersController");
-
+const connectionsController = require('./Controllers/connectionsController')
 // CONFIGURATION
 const app = express();
 
@@ -12,6 +12,7 @@ app.use(express.json()); // Parse incoming JSON
 
 // ROUTES
 app.use("/users", usersController);
+app.use('/connections', connectionsController);
 
 app.get("/", (req, res) => {
   res.send("Welcome to Connect App");

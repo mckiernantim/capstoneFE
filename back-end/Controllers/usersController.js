@@ -1,6 +1,6 @@
 const express = require("express");
 const users = express.Router();
-const { addUser, getUsers, getUserById, deleteUser, updateUserById } = require("../Queries/Users");
+const { addUser, getUsers, getUserById, deleteUser, updateUserById, getAllConnectionsForUser, addNewConnectionToUser, deleteConnectionFromUser } = require("../Queries/Users");
 
 // INDEX
 users.get("/", async (req, res) => {
@@ -52,4 +52,24 @@ users.delete("/:id", async (req, res) => {
   }
 })
 
+//GET all connections by user
+users.get('/:userId/connections', async(req, res) => {
+  const {userId} = req.params;
+  const userConnections = await getAllConnectionsForUser(userId)
+  res.json(userConnections)
+})
+
+//POST a connection to user 
+users.post('/:userId/connections/:connectionId', async(req,res) => {
+  const {userId, connectionId} = req.params
+  const succesfulAdd = await addNewConnectionToUser(userId, connectionId)
+  res.json(succesfulAdd)
+})
+
+//DELETE a connection from user 
+users.delete('/:userId/connections/:connectionId', async(req, res) => {
+  const {userId, connectionId} = req.params
+  const succesfulDelete = await deleteConnectionFromUser(userId, connectionId)
+  res.json(succesfulDelete)
+})
 module.exports = users;
