@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import { signOut } from "../Services/Firebase";
 // import axios from "axios";
 
-export const Dashboard = () => {
+export const DashboardInfo = () => {
   const history = useHistory();
   const user = useContext(UserContext);
   // const [linkedin, setLinkedin] = useState("");
