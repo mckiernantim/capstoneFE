@@ -1,11 +1,10 @@
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../Providers/UserProvider";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { signOut } from "../Services/Firebase";
 import ConnectionsList from "./ConnectionsList.js"
 import { apiURL } from "../util/apiURL";
 import axios from "axios";
-// import axios from "axios";
 
 const API = apiURL()
 
@@ -89,7 +88,7 @@ export const DashboardInfo = () => {
       <p>Twitter: {userInfo.twitter ? userInfo.twitter : "no handle found"}</p>
       <button onClick={handleLogout}> LOG OUT</button>
 
-      <ConnectionsList />
+      <ConnectionsList uid = {userInfo.uid}/>
     </section>
   );
 };
