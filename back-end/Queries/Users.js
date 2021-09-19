@@ -13,12 +13,12 @@ const getUsers = async () => {
 
 // QUERY FOR POST ROUTE
 const addUser = async (user) => {
-  const { linkedin, twitter, email, displayName, photoURL, phoneNumber, uid } =
+  const { linkedin, twitter, email, display_name, photo_url, phone_number, uid } =
     user;
   try {
     const user = await db.one(
-      "INSERT INTO users (linkedin, twitter, email, displayName, photoURL, phoneNumber, uid) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *",
-      [linkedin, twitter, email, displayName, photoURL, phoneNumber, uid]
+      "INSERT INTO users (linkedin, twitter, email, display_name, photo_url, phone_number, uid) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *",
+      [linkedin, twitter, email, display_name, photo_url, phone_number, uid]
     );
     return { success: true, payload: user };
   } catch (error) {
@@ -38,11 +38,11 @@ const getUserById = async (uid) => {
 
 // UPDATE
 const updateUserById = async (uid, body) => {
-  const { linkedin, twitter, email, displayName, photoURL, phoneNumber } = body;
+  const { linkedin, twitter, email, display_name, photo_url, phone_number} = body;
   try {
     const updateUser = await db.one(
       "UPDATE users SET linkedin=$1, twitter=$2,  email=$3, displayName=$4, photoURL=$5, phoneNumber=$6 WHERE uid=$7 RETURNING *",
-      [linkedin, twitter, email, displayName, photoURL, phoneNumber, uid]
+      [linkedin, twitter, email, display_name, photo_url, phone_number, uid]
     );
     return { success: true, payload: updateUser };
   } catch (error) {
@@ -69,7 +69,7 @@ const deleteUser = async (uid) => {
 const getAllConnectionsForUser = async (uid) => {
   try {
     const connectionsByUser = await db.any(
-      ` SELECT displayName FROM users JOIN connections ON users.uid = connections.user1_id OR users.uid = connections.user2_id
+      ` SELECT display_name FROM users JOIN connections ON users.uid = connections.user1_id OR users.uid = connections.user2_id
         WHERE ( connections.user1_id=$1 OR connections.user2_id=$1) 
         AND users.uid != $1`, uid
     )
