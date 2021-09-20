@@ -1,8 +1,5 @@
 const admin = require("../firebase");
 
-// prevent users from accessing users index
-// add to protected route (ex. frontend/UsersIndex.js fetchAllUsers())
-// to check if there is a token
 const checkFirebaseToken = async (req, res, next) => {
     try {
         const token = req.headers.authtoken;
