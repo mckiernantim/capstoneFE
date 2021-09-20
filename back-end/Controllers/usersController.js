@@ -1,9 +1,20 @@
 const express = require("express");
 const users = express.Router();
-const { addUser, getUsers, getUserById, deleteUser, updateUserById, getAllConnectionsForUser, addNewConnectionToUser, deleteConnectionFromUser } = require("../Queries/Users");
+const {
+  addUser,
+  getUsers,
+  getUserById,
+  deleteUser,
+  updateUserById,
+  getAllConnectionsForUser,
+  addNewConnectionToUser,
+  deleteConnectionFromUser,
+} = require("../Queries/Users");
+
+const { checkFirebaseToken } = require("../middleware/auth");
 
 // INDEX
-users.get("/", async (req, res) => {
+users.get("/", checkFirebaseToken, async (req, res) => {
   try {
     const allUsers = await getUsers();
     res.json(allUsers);
@@ -35,14 +46,14 @@ users.get("/:id", async (req, res) => {
 // UPDATE
 users.put("/:id", async (req, res) => {
   try {
-    const user = await updateUserById(req.params.id, req.body)
-    res.json(user)
+    const user = await updateUserById(req.params.id, req.body);
+    res.json(user);
   } catch (error) {
     return error;
   }
-})
+});
 
-// DELETE 
+// DELETE
 users.delete("/:id", async (req, res) => {
   try {
     const user = await deleteUser(req.params.id);
@@ -50,26 +61,26 @@ users.delete("/:id", async (req, res) => {
   } catch (error) {
     return error;
   }
-})
+});
 
 //GET all connections by user
-users.get('/:userId/connections', async(req, res) => {
-  const {userId} = req.params;
-  const userConnections = await getAllConnectionsForUser(userId)
-  res.json(userConnections)
-})
+users.get("/:userId/connections", async (req, res) => {
+  const { userId } = req.params;
+  const userConnections = await getAllConnectionsForUser(userId);
+  res.json(userConnections);
+});
 
-//POST a connection to user 
-users.post('/:userId/connections/:connectionId', async(req,res) => {
-  const {userId, connectionId} = req.params
-  const succesfulAdd = await addNewConnectionToUser(userId, connectionId)
-  res.json(succesfulAdd)
-})
+//POST a connection to user
+users.post("/:userId/connections/:connectionId", async (req, res) => {
+  const { userId, connectionId } = req.params;
+  const succesfulAdd = await addNewConnectionToUser(userId, connectionId);
+  res.json(succesfulAdd);
+});
 
-//DELETE a connection from user 
-users.delete('/:userId/connections/:connectionId', async(req, res) => {
-  const {userId, connectionId} = req.params
-  const succesfulDelete = await deleteConnectionFromUser(userId, connectionId)
-  res.json(succesfulDelete)
-})
+//DELETE a connection from user
+users.delete("/:userId/connections/:connectionId", async (req, res) => {
+  const { userId, connectionId } = req.params;
+  const succesfulDelete = await deleteConnectionFromUser(userId, connectionId);
+  res.json(succesfulDelete);
+});
 module.exports = users;

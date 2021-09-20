@@ -1,4 +1,4 @@
-const connections = require("../Controllers/connectionsController");
+// const connections = require("../Controllers/connectionsController");
 const db = require("../db/dbConfig");
 
 // INDEX
