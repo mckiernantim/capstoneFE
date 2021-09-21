@@ -67,7 +67,7 @@ export const DashboardInfo = () => {
           }
         };
         getSingleUser();
-        console.log("THIS IS MY NAME:" + userInfo.display_name)
+        // console.log("THIS IS MY NAME:" + userInfo.display_name)
       }
       
     }, [user, history]);

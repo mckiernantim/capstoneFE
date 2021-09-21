@@ -3,15 +3,16 @@ const connections = express.Router({
     mergeParams: true
 });
 
+const { checkFirebaseToken } = require("../middleware/auth");
 const {getAllConnections} = require('../Queries/Connections')
 
-connections.get('/', async(req, res) => {
+connections.get('/', checkFirebaseToken, async(req, res) => {
     try {
         const connections = await getAllConnections();
         res.json(connections)
     } catch (error) {
         console.log(error)
-        res.status(404).send(`Message: ${e}`)
+        res.status(404).send(`Message: ${error}`)
     }
 });
 
