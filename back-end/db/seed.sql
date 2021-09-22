@@ -10,35 +10,35 @@ INSERT INTO users (
         uid
     )
 VALUES (
-        'https://www.linkedin.com/in/carlos/',
+        'https://www.linkedin.com/in/carlos-hidalgo',
         '@carlos',
-        'carlos@aol.com',
+        'carlos@pursuit.org',
         'CarlosH',
         'https://picsum.photos/200',
         7185551234,
         'szyR5ui895Toro3cnm75MJKOYkf1'
     ),
     (
-        'https://www.linkedin.com/in/coreen/',
-        '@coreen',
-        'coreen@gmail.com',
+        'https://www.linkedin.com/in/coreenmcooper/',
+        '@cc0upa',
+        'coreen@pursuit.org',
         'CCooper',
         'https://picsum.photos/200',
         2125551234,
         'XsyyfBlnlJeve32xqPQUaVv9f5J2'
     ),
     (
-        'https://www.linkedin.com/in/jessica/',
+        'https://www.linkedin.com/in/jessicanetto/',
         '@jessica',
-        'Jessica@gmail.com',
-        'JessN',
+        'jessicanetto@pursuit.org',
+        'JNetto',
         'https://picsum.photos/200',
         3475551234,
         'OUO4QH8PETgcO5TAECPxz4K16VF3'
     ), (
-        'https://www.linkedin.com/in/poonam/',
+        'https://www.linkedin.com/in/poonam-dass/',
         '@poonam',
-        'poonam@gmail.com',
+        'poonamdass@pursuit.org',
         'PDass',
         'https://picsum.photos/200',
         9175551234,
