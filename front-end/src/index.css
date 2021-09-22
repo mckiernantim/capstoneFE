@@ -18,6 +18,12 @@ code {
   justify-content: center;
   }
 
+  .dashboard img {
+    border-radius: 50%;
+  }
+
+  .connections { text-align: center;}
+
   .Login-msg {
     display: flex;
     flex-direction: column;

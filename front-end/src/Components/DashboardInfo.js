@@ -6,7 +6,7 @@ import { signOut } from "../Services/Firebase";
 import { apiURL } from "../util/apiURL";
 import axios from "axios";
 
-const API = apiURL()
+const API = apiURL();
 
 export const DashboardInfo = () => {
   const history = useHistory();
@@ -19,9 +19,7 @@ export const DashboardInfo = () => {
     email: "",
     photo_url: "",
     phone_number: "",
-  })
-   
-
+  });
 
   // const [linkedin, setLinkedin] = useState("");
 
@@ -40,50 +38,46 @@ export const DashboardInfo = () => {
   //   setLinkedin(e.target.value);
   // };
 
-
-  
   // const deleteSingleUser = async () => {
-    //   axios.delete(`http://localhost:3001/users/${user.uid}`);
-    // };
-    // console.log(deleteSingleUser());
-    
-    const handleLogout = async () => {
-      signOut();
-      alert("you've been logged out");
-    };
-    
-    useEffect(() => {
-      if (!user) {
-        history.push("");
-      } else {
-        const getSingleUser = async () => {
-          try {
-            let res = await axios.get(
-              `${API}/users/${user.uid}`
-            );
-            setUserInfo(res.data.payload);
-          } catch (error) {
-            console.log(error);
-          }
-        };
-        getSingleUser();
-        // console.log("THIS IS MY NAME:" + userInfo.display_name)
-      }
-      
-    }, [user, history]);
-    
+  //   axios.delete(`http://localhost:3001/users/${user.uid}`);
+  // };
+  // console.log(deleteSingleUser());
+
+  const handleLogout = async () => {
+    signOut();
+    alert("you've been logged out");
+  };
+
+  useEffect(() => {
     if (!user) {
-      return <div>No User</div>;
+      history.push("");
+    } else {
+      const getSingleUser = async () => {
+        try {
+          let res = await axios.get(`${API}/users/${user.uid}`);
+          setUserInfo(res.data.payload);
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      getSingleUser();
+      // console.log("THIS IS MY NAME:" + userInfo.display_name)
     }
+  }, [user, history]);
+
+  if (!user) {
+    return <div>No User</div>;
+  }
 
   return (
     <section className="dashboard">
       <h1>Welcome {userInfo.display_name}</h1>
-      <div>
-        <img src={userInfo.photo_url} alt={userInfo.display_name} />
-      </div>
+      <img src={userInfo.photo_url} alt={userInfo.display_name} />
       <p> Email: {userInfo.email}</p>
-      <p>Phone: {userInfo.phone_number ? userInfo.phone_number : "no number found"}</p>
+      <p>
+        Phone:{" "}
+        {userInfo.phone_number ? userInfo.phone_number : "no number found"}
+      </p>
       <p>Linkedin: {userInfo.linkedin ? userInfo.linkedin : "no url found"}</p>
       <p>Twitter: {userInfo.twitter ? userInfo.twitter : "no handle found"}</p>
       <button onClick={handleLogout}> LOG OUT</button>

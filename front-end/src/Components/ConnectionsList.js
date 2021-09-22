@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../Providers/UserProvider";
 import { apiURL } from "../util/apiURL";
 import axios from "axios";
+import { Link } from "react-router-dom"
 
 const API = apiURL();
 
@@ -22,29 +23,6 @@ const ConnectionsList = () => {
     fetchList();
   }, [user]);
 
-  // console.log("friendList: ", friendsList)
-
-  // return (
-  //   <ul>
-  //     {friendsList ? (
-  //       <>
-  //         {friendsList.map((friend, idx) => {
-  //           return (
-  //             <Link key={idx} to={`/connections/${user.uid}`}>
-  //               <li>
-  //                 <p>{friend.display_name}</p>
-  //               </li>
-  //             </Link>
-  //           );
-  //         })}
-  //       </>
-  //     ) : (
-  //       <>
-  //         <h1>You have no connections</h1>
-  //       </>
-  //     )}
-  //   </ul>
-
   return (
     <>
       <table>
@@ -54,6 +32,7 @@ const ConnectionsList = () => {
             <th>Email</th>
             <th>LinkedIn</th>
             <th>Twitter</th>
+            <th>Phone</th>
           </tr>
         </thead>
 
@@ -69,6 +48,7 @@ const ConnectionsList = () => {
                     </td>
                     <td><a href={`mailto:${friend.email}`}>{friend.email}</a></td>
                     <td><a href={friend.twitter}>{friend.twitter}</a></td>
+                    <td><a href={`tel:${friend.phone_number}`}>{friend.phone_number}</a></td>
                   </tr>
                 );
               })}
@@ -80,6 +60,7 @@ const ConnectionsList = () => {
           )}
         </tbody>
       </table>
+      <Link to="/dashboard">back</Link>
     </>
   );
 };
