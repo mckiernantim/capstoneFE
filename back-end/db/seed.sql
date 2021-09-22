@@ -12,7 +12,7 @@ INSERT INTO users (
 VALUES (
         'https://www.linkedin.com/in/carlos-hidalgo',
         'https://twitter.com/carlos',
-        'carlos@pursuit.org',
+        'carloshidalgo@pursuit.org',
         'CarlosH',
         'https://picsum.photos/200',
         7185551234,
