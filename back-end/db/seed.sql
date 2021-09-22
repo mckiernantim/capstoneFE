@@ -18,7 +18,7 @@ VALUES (
         'szyR5ui895Toro3cnm75MJKOYkf1'
     ),
     (
-        'https://www.linkedin.com/in/coreenmcooper/',
+        'https://www.linkedin.com/in/coreenmcooper',
         'https://twitter.com/cc0upa',
         'coreencooper@pursuit.org',
         'CCooper',
@@ -27,7 +27,7 @@ VALUES (
         'XsyyfBlnlJeve32xqPQUaVv9f5J2'
     ),
     (
-        'https://www.linkedin.com/in/jessicanetto/',
+        'https://www.linkedin.com/in/jessicanetto',
         'https://twitter.com/jessica',
         'jessicanetto@pursuit.org',
         'JNetto',
@@ -36,7 +36,7 @@ VALUES (
         'OUO4QH8PETgcO5TAECPxz4K16VF3'
     ),
     (
-        'https://www.linkedin.com/in/poonam-dass/',
+        'https://www.linkedin.com/in/poonam-dass',
         'https://twitter.com/poonam',
         'poonamdass@pursuit.org',
         'PDass',
@@ -69,12 +69,3 @@ VALUES (
         'JzsbUy5H7tMu2Hs0Y7mFzVk41oC2',
         'OUO4QH8PETgcO5TAECPxz4K16VF3'
     );
-
--- INSERT into events (
---     name
--- )
--- VALUES (
---     'Event 1'
--- ), (
---     'Event 2'
--- )
