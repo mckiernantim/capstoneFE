@@ -11,7 +11,7 @@ INSERT INTO users (
     )
 VALUES (
         'https://www.linkedin.com/in/carlos-hidalgo',
-        '@carlos',
+        'https://twitter.com/carlos',
         'carlos@pursuit.org',
         'CarlosH',
         'https://picsum.photos/200',
@@ -20,7 +20,7 @@ VALUES (
     ),
     (
         'https://www.linkedin.com/in/coreenmcooper/',
-        '@cc0upa',
+        'https://twitter.com/cc0upa',
         'coreen@pursuit.org',
         'CCooper',
         'https://picsum.photos/200',
@@ -29,7 +29,7 @@ VALUES (
     ),
     (
         'https://www.linkedin.com/in/jessicanetto/',
-        '@jessica',
+        'https://twitter.com/jessica',
         'jessicanetto@pursuit.org',
         'JNetto',
         'https://picsum.photos/200',
@@ -37,7 +37,7 @@ VALUES (
         'OUO4QH8PETgcO5TAECPxz4K16VF3'
     ), (
         'https://www.linkedin.com/in/poonam-dass/',
-        '@poonam',
+        'https://twitter.com/poonam',
         'poonamdass@pursuit.org',
         'PDass',
         'https://picsum.photos/200',

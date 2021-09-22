@@ -67,7 +67,7 @@ const ConnectionsList = () => {
                     <td>
                       <a href={friend.linkedin}>{friend.linkedin}</a>
                     </td>
-                    <td><a href={friend.email}>{friend.email}</a></td>
+                    <td><a href={`mailto:${friend.email}`}>{friend.email}</a></td>
                     <td><a href={friend.twitter}>{friend.twitter}</a></td>
                   </tr>
                 );
