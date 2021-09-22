@@ -3,7 +3,7 @@ const connections = express.Router({
     mergeParams: true
 });
 
-const { checkFirebaseToken } = require("../middleware/auth");
+// const { checkFirebaseToken } = require("../middleware/auth");
 const {getAllConnections} = require('../Queries/Connections')
 
 connections.get('/', async(req, res) => {

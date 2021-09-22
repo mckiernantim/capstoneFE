@@ -11,7 +11,7 @@ const {
   deleteConnectionFromUser,
 } = require("../Queries/Users");
 
-const { checkFirebaseToken } = require("../middleware/auth");
+// const { checkFirebaseToken } = require("../middleware/auth");
 
 // INDEX
 users.get("/", async (req, res) => {

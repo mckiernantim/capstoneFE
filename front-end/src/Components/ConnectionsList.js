@@ -13,7 +13,8 @@ const ConnectionsList = () => {
   const fetchList = async () => {
     try {
       const res = await axios.get(`${API}/users/${user.uid}/connections`);
-      console.log("connectionsList: ", user);
+      // debugger
+      console.log("connectionsList: ", res.data);
       setFriendsList(res.data);
     } catch (error) {
       console.log(error);
@@ -24,7 +25,7 @@ const ConnectionsList = () => {
     fetchList();
   }, [user]);
 
-  // console.log(friendsList)
+  // console.log("friendList: ", friendsList)
 
   return (
     <ul>
@@ -34,7 +35,7 @@ const ConnectionsList = () => {
             return(
               <Link key={idx} to={`/connections/${user.uid}`}>
                 <li>
-                {friend.display_name}
+                {friend.emails}
             </li>
                 </Link>
             )
