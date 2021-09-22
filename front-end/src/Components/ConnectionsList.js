@@ -1,17 +1,20 @@
-import { useState, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
+import { UserContext } from "../Providers/UserProvider";
 import { apiURL } from "../util/apiURL";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const API = apiURL();
 
-const ConnectionsList = ({ uid }) => {
+const ConnectionsList = () => {
   const [friendsList, setFriendsList] = useState([]);
+  const user = useContext(UserContext);
 
   const fetchList = async () => {
     try {
-      let res = await axios.get(`${API}/users/${uid}/connections`);
-    //   console.log(res.data);
-      setFriendsList(res.data[0]);
+      const res = await axios.get(`${API}/users/${user.uid}/connections`);
+      console.log("connectionsList: ", user);
+      setFriendsList(res.data);
     } catch (error) {
       console.log(error);
     }
@@ -19,20 +22,30 @@ const ConnectionsList = ({ uid }) => {
 
   useEffect(() => {
     fetchList();
-  }, [uid]);
+  }, [user]);
+
+  // console.log(friendsList)
 
   return (
-    <div>
+    <ul>
       {friendsList ? (
         <>
-          <h1>CONNECTIONS</h1> <h1>{friendsList.display_name}</h1>
+          {friendsList.map((friend, idx) => {
+            return(
+              <Link key={idx} to={`/connections/${user.uid}`}>
+                <li>
+                {friend.display_name}
+            </li>
+                </Link>
+            )
+          })}
         </>
       ) : (
         <>
           <h1>You have no connections</h1>
         </>
       )}
-    </div>
+    </ul>
   );
 };
 

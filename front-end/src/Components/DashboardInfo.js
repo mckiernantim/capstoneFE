@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../Providers/UserProvider";
 import { useHistory } from "react-router-dom";
 import { signOut } from "../Services/Firebase";
-import ConnectionsList from "./ConnectionsList.js"
+// import ConnectionsList from "./ConnectionsList.js"
 import { apiURL } from "../util/apiURL";
 import axios from "axios";
 
@@ -87,8 +87,11 @@ export const DashboardInfo = () => {
       <p>Linkedin: {userInfo.linkedin ? userInfo.linkedin : "no url found"}</p>
       <p>Twitter: {userInfo.twitter ? userInfo.twitter : "no handle found"}</p>
       <button onClick={handleLogout}> LOG OUT</button>
+      <a href="/connections">
+        <button>Connections</button>
+      </a>
 
-      <ConnectionsList uid = {userInfo.uid}/>
+      {/* <ConnectionsList uid = {userInfo.uid}/> */}
     </section>
   );
 };

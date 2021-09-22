@@ -14,7 +14,7 @@ const {
 const { checkFirebaseToken } = require("../middleware/auth");
 
 // INDEX
-users.get("/", checkFirebaseToken, async (req, res) => {
+users.get("/", async (req, res) => {
   try {
     const allUsers = await getUsers();
     res.json(allUsers);
