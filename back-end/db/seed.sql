@@ -20,7 +20,7 @@ VALUES (
     (
         'https://www.linkedin.com/in/coreenmcooper/',
         'https://twitter.com/cc0upa',
-        'coreen@pursuit.org',
+        'coreencooper@pursuit.org',
         'CCooper',
         'https://picsum.photos/100',
         2125551234,
