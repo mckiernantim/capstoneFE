@@ -5,7 +5,7 @@ const getAllConnections = async () => {
         const allConnections = await db.any('SELECT * FROM connections');
         return allConnections
     } catch (error) {
-        console.log(e)
+        console.log(error)
     }
 }
 

@@ -26,10 +26,10 @@ export const UserProvider =  (props) => {
     }, [])
 
     return (
-      <div>
+      <>
         <UserContext.Provider value = {user}>
           {props.children}
         </UserContext.Provider>
-        </div>
+        </>
     ) 
 }

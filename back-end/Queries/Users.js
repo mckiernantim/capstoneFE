@@ -69,7 +69,7 @@ const deleteUser = async (uid) => {
 const getAllConnectionsForUser = async (uid) => {
   try {
     const connectionsByUser = await db.any(
-      ` SELECT display_name FROM users JOIN connections ON users.uid = connections.user1_id OR users.uid = connections.user2_id
+      ` SELECT * FROM users JOIN connections ON users.uid = connections.user1_id OR users.uid = connections.user2_id
         WHERE ( connections.user1_id=$1 OR connections.user2_id=$1) 
         AND users.uid != $1`, uid
     )

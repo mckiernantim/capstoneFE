@@ -1,17 +1,19 @@
-import { useState, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
+import { UserContext } from "../Providers/UserProvider";
 import { apiURL } from "../util/apiURL";
 import axios from "axios";
+import { Link } from "react-router-dom"
 
 const API = apiURL();
 
-const ConnectionsList = ({ uid }) => {
+const ConnectionsList = () => {
   const [friendsList, setFriendsList] = useState([]);
+  const user = useContext(UserContext);
 
   const fetchList = async () => {
     try {
-      let res = await axios.get(`${API}/users/${uid}/connections`);
-    //   console.log(res.data);
-      setFriendsList(res.data[0]);
+      const res = await axios.get(`${API}/users/${user.uid}/connections`);
+      setFriendsList(res.data);
     } catch (error) {
       console.log(error);
     }
@@ -19,20 +21,47 @@ const ConnectionsList = ({ uid }) => {
 
   useEffect(() => {
     fetchList();
-  }, [uid]);
+  }, [user]);
 
   return (
-    <div>
-      {friendsList ? (
-        <>
-          <h1>CONNECTIONS</h1> <h1>{friendsList.display_name}</h1>
-        </>
-      ) : (
-        <>
-          <h1>You have no connections</h1>
-        </>
-      )}
-    </div>
+    <>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>LinkedIn</th>
+            <th>Twitter</th>
+            <th>Phone</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {friendsList ? (
+            <>
+              {friendsList.map((friend, idx) => {
+                return (
+                  <tr key={idx} to={`/connections/${user.uid}`}>
+                    <td>{friend.display_name}</td>
+                    <td>
+                      <a href={friend.linkedin}>{friend.linkedin}</a>
+                    </td>
+                    <td><a href={`mailto:${friend.email}`}>{friend.email}</a></td>
+                    <td><a href={friend.twitter}>{friend.twitter}</a></td>
+                    <td><a href={`tel:${friend.phone_number}`}>{friend.phone_number}</a></td>
+                  </tr>
+                );
+              })}
+            </>
+          ) : (
+            <>
+              <h1>You have no connections</h1>
+            </>
+          )}
+        </tbody>
+      </table>
+      <Link to="/dashboard">back</Link>
+    </>
   );
 };
 
