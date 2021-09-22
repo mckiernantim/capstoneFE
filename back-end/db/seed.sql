@@ -14,7 +14,7 @@ VALUES (
         '@carlos',
         'carlos@aol.com',
         'CarlosH',
-        'https://picsum.photos/200/300',
+        'https://picsum.photos/200',
         7185551234,
         'szyR5ui895Toro3cnm75MJKOYkf1'
     ),
@@ -23,7 +23,7 @@ VALUES (
         '@coreen',
         'coreen@gmail.com',
         'CCooper',
-        'https://picsum.photos/200/300',
+        'https://picsum.photos/200',
         2125551234,
         'XsyyfBlnlJeve32xqPQUaVv9f5J2'
     ),
@@ -32,7 +32,7 @@ VALUES (
         '@jessica',
         'Jessica@gmail.com',
         'JessN',
-        'https://picsum.photos/200/300',
+        'https://picsum.photos/200',
         3475551234,
         'OUO4QH8PETgcO5TAECPxz4K16VF3'
     ), (
@@ -40,7 +40,7 @@ VALUES (
         '@poonam',
         'poonam@gmail.com',
         'PDass',
-        'https://picsum.photos/200/300',
+        'https://picsum.photos/200',
         9175551234,
         'JzsbUy5H7tMu2Hs0Y7mFzVk41oC2'
         

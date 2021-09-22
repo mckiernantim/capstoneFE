@@ -112,4 +112,10 @@ code {
   }
     
     
-  
+  table {
+    border: black solid 1px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
