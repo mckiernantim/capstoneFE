@@ -3,6 +3,7 @@
 // import { apiURL } from "./util/apiURL.js";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { UserProvider } from "./Providers/UserProvider.js";
+import "./index.css";
 import { Connections } from "./Pages/Connections";
 import { LoginPage } from "./Pages/LoginPage";
 import { Dashboard } from "./Pages/Dashboard";

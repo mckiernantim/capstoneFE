@@ -1,20 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { render } from 'react-dom';
-import './index.css';
-
+import '../index.css'
+import Form from 'react-bootstrap/Form'
 class Card extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      name: 'Name',
-      phoneNumber: 'Phone Number',
-      email: 'E-mail',
-      linkedin: 'LinkedIn'
+      name: 'Name:',
+      phoneNumber: 'Phone Number:',
+      email: 'E-mail:',
+      linkedin: 'LinkedIn URL:'
       };
       this.handleChangeName = this.handleChangeName.bind(this);
       this.handleChangePhoneNumber = this.handleChangePhoneNumber.bind(this);
       this.handleChangeEmail = this.handleChangeEmail.bind(this);
       this.handleChangelinkedin = this.handleChangelinkedin.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChangeName(event){
@@ -40,7 +41,10 @@ class Card extends React.Component{
       linkedin: event.target.value
     })
   }
-
+  handleSubmit(event){
+    alert('Your information was saved')
+    event.preventDefault()
+  }
 
 
 render(){
@@ -48,10 +52,9 @@ render(){
     <div className = "container">
     
     
-    <form>
+    <form> onSubmit={this.handleSubmit}
     <div className="box">
     <h1>Business Card</h1>
-
     
     <input
     className = 'name'
@@ -80,25 +83,42 @@ render(){
     type = 'text'
     onChange = {this.handleChangelinkedin}
     />
-
     </div>
+    <>
+  <Form.Label htmlFor="exampleColorInput">Color picker</Form.Label>
+  <Form.Control
+    type="color"
+    id="exampleColorInput"
+    defaultValue="#563d7c"
+    title="Choose your color"
+  />
+</>
    </form>
 
    <div className = "cardDiv">
     <div className = "card">
+    <h1 className = "cardName"><label>Name:</label> {this.state.name}</h1>
       <hr />
-      <p className = "cardPhoneNumber">{this.state.phoneNumber}</p>
+      <p className = "cardPhoneNumber"><label>PhoneNumber:</label>
+{this.state.phoneNumber}</p>
       <hr />
-      <p className = "cardEmail">{this.state.email}</p>
-      <p className = "cardWebsite">{this.state.linkedin}</p>
+      <p className = "cardEmail"><label>Email:</label>
+{this.state.email}</p>
+      <hr />
+      <p className = "cardWebsite"><label>LinkedIn URL:</label>
+{this.state.linkedin}</p>
+      <hr/>
+      <button>Edit</button>
+      <button>Flip</button>
     </div>
   </div>
 </div>
+
     
     
     
   );
 }
 }
-
+export default Card
 render(<Card />, document.getElementById('root'));
