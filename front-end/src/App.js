@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { LoginPage } from "./Pages/LoginPage";
 import { Dashboard } from "./Components/Dashboard";
 import { UserProvider } from "./Providers/UserProvider.js";
+import "./index.css";
 // import { UserContext } from "./Providers/UserProvider.js";
 
 // const API = apiURL();

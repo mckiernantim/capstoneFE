@@ -2,6 +2,7 @@ import { useContext, useEffect } from "react";
 import { UserContext } from "../Providers/UserProvider";
 import { useHistory } from "react-router-dom";
 import { signOut } from "../Services/Firebase";
+import Card from "../Components/Card";
 // import axios from "axios";
 
 export const Dashboard = () => {
@@ -52,6 +53,7 @@ export const Dashboard = () => {
 
   return (
     <section className="dashboard">
+            <Card/>
       <h1>Welcome {user.displayName}</h1>
       <div>
         <img src={user.photoURL} alt={user.displayName} />
