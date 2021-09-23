@@ -1,9 +1,9 @@
-import { Dashboard } from '../Components/Dashboard';
+import { DashboardInfo } from '../Components/DashboardInfo';
 
 export const Dashboard = () => {
     return (
         <>     
-           <Dashboard /> 
+           <DashboardInfo /> 
         </>
     )
 }

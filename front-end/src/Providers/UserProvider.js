@@ -8,7 +8,7 @@ export const UserProvider =  (props) => {
     useEffect(() => {
       auth.onAuthStateChanged(async (user) => {
         if(user){
-          console.log(user)
+          // console.log(user)
           const {email, displayName, photoURL, phoneNumber, uid} = user
           setUser({
             email, 
@@ -17,18 +17,19 @@ export const UserProvider =  (props) => {
             phoneNumber,
             uid
           })
+
         } else {
           setUser(null)
-
         }
       })
+
     }, [])
 
     return (
-      <div>
+      <>
         <UserContext.Provider value = {user}>
           {props.children}
         </UserContext.Provider>
-        </div>
+        </>
     ) 
 }

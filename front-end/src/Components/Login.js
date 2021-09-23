@@ -16,12 +16,12 @@ export const Login = () => {
     try {
       await axios.post(`${API}/users`, {
         uid: uid,
-        displayName: displayName,
+        display_name: displayName,
         linkedin: linkedin,
         twitter: twitter,
         email: email,
-        photoURL: photoURL,
-        phoneNumber: phoneNumber,
+        photo_url: photoURL,
+        phone_number: phoneNumber,
       });
     } catch (error) {
       return error;
