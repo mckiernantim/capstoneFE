@@ -41,7 +41,7 @@ const updateUserById = async (uid, body) => {
   const { linkedin, twitter, email, display_name, photo_url, phone_number} = body;
   try {
     const updateUser = await db.one(
-      "UPDATE users SET linkedin=$1, twitter=$2,  email=$3, displayName=$4, photoURL=$5, phoneNumber=$6 WHERE uid=$7 RETURNING *",
+      "UPDATE users SET linkedin=$1, twitter=$2,  email=$3, display_name=$4, photo_url=$5, phone_number=$6 WHERE uid=$7 RETURNING *",
       [linkedin, twitter, email, display_name, photo_url, phone_number, uid]
     );
     return { success: true, payload: updateUser };

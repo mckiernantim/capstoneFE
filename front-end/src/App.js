@@ -7,6 +7,7 @@ import "./index.css";
 import { Connections } from "./Pages/Connections";
 import { LoginPage } from "./Pages/LoginPage";
 import { Dashboard } from "./Pages/Dashboard";
+import { Edit } from "./Pages/Edit";
 // import { UserContext } from "./Providers/UserProvider.js";
 
 // const API = apiURL();
@@ -23,8 +24,11 @@ function App() {
             <Route path="/connections">
               <Connections />
             </Route>
-            <Route>
-              <Dashboard path="/dashboard" />
+            <Route exact path="/dashboard/edit">
+              <Edit />
+            </Route>
+            <Route exact path="/dashboard" >
+              <Dashboard />
             </Route>
           </Switch>
         </Router>

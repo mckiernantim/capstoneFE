@@ -5,7 +5,10 @@ import { signOut } from "../Services/Firebase";
 // import ConnectionsList from "./ConnectionsList.js"
 import { apiURL } from "../util/apiURL";
 import axios from "axios";
-
+import Card from "../Components/Card";
+import "../index.css";
+import { DashboardEdit } from "./DashboardEdit";
+import { Link } from "react-router-dom";
 const API = apiURL();
 
 export const DashboardInfo = () => {
@@ -71,7 +74,35 @@ export const DashboardInfo = () => {
 
   return (
     <section className="dashboard">
-      <h1>Welcome {userInfo.display_name}</h1>
+      <h1 className ="cardName">Welcome to TieIn</h1>
+      <div className="cardDiv">
+        <div className="card">
+          <h1 className="cardName">
+            <label></label> {userInfo.display_name}
+          </h1>
+          <hr />
+          <p className="cardPhoneNumber">
+            <label>PhoneNumber:</label>
+            {userInfo.phone_number}
+          </p>
+          <hr />
+          <p className="cardEmail">
+            <label>Email:</label>
+            {userInfo.email}
+          </p>
+          <hr />
+          <p className="cardWebsite">
+            <label>LinkedIn:</label>
+            {userInfo.linkedin ? userInfo.linkedin : "no url found"}
+          </p>
+          <hr />
+          <Link to="/dashboard/edit">
+          <button>Edit</button>
+          </Link>
+          <button>Flip</button>
+        </div>
+      </div>
+      {/* <h1>Welcome {userInfo.display_name}</h1>
       <img src={userInfo.photo_url} alt={userInfo.display_name} />
       <p> Email: {userInfo.email}</p>
       <p>
@@ -79,12 +110,12 @@ export const DashboardInfo = () => {
         {userInfo.phone_number ? userInfo.phone_number : "no number found"}
       </p>
       <p>Linkedin: {userInfo.linkedin ? userInfo.linkedin : "no url found"}</p>
-      <p>Twitter: {userInfo.twitter ? userInfo.twitter : "no handle found"}</p>
+      <p>Twitter: {userInfo.twitter ? userInfo.twitter : "no handle found"}</p> */}
       <button onClick={handleLogout}> LOG OUT</button>
       <a href="/connections">
         <button>Connections</button>
       </a>
-
+      {/* <Card /> */}
       {/* <ConnectionsList uid = {userInfo.uid}/> */}
     </section>
   );
