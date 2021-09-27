@@ -1,15 +1,19 @@
 import axios from "axios";
-import { useContext, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { useHistory, Link } from "react-router-dom";
 import { UserContext } from "../Providers/UserProvider";
-import { signInWithGoogle } from "../Services/Firebase";
+import { signInWithGoogle, signInWithGithub, signInWithEmailAndPassword} from "../Services/Firebase";
 import { apiURL } from "../util/apiURL";
+import "../Styles/Login.css"
 
 const API = apiURL();
 
 export const Login = () => {
   const user = useContext(UserContext);
   const history = useHistory();
+
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
 
   const addNewUser = async (user) => {
     const { uid, displayName, linkedin, twitter, email, photoURL, phoneNumber } = user;
@@ -28,13 +32,15 @@ export const Login = () => {
     }
   };
 
-  const handleSignIn = async () => {
+  const handleSignInGoogle = async () => {
     await signInWithGoogle();
-    // console.log(user);
-    // console.log("this is user");
-    // addNewUser(user)
-    // console.log("help" + user);
+  
   };
+  const handleSignInGithub = async () => {
+    await signInWithGithub();
+  
+  };
+
 
   // const handleSignOut = async () => {
   //   signOut();
@@ -47,12 +53,50 @@ export const Login = () => {
     }
   }, [user, history]);
 
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    await signInWithEmailAndPassword(email, password)
+  }
+  
   return (
     <section className="Login-msg">
       <h1>Welcome the Connect App!</h1>
-      <button onClick={handleSignIn}>
-        Sign in with Google
-      </button>
+
+      <div className="login-container">
+        <div onClick={handleSignInGoogle} className="login" >
+          <img className="logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" />
+          <div >Continue with Google</div>
+        </div>
+
+        <div onClick={handleSignInGithub} className="login">
+          <img className="logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" />
+          <div >Continue with Github</div>
+        </div>
+      </div>
+
+
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="email">Email</label>
+        <input 
+          type="email"
+          name="email" 
+          onChange={(e)=> setEmail(e.target.value)}
+          value={email}/>
+
+        <label htmlFor="password">Password</label>
+        <input 
+          type="password"
+          name="password"
+          onChange={(e)=> setPassword(e.target.value)}
+          value={password} />
+
+          <button type="submit">
+            Submit
+          </button>
+      </form>
+    <Link to = "/signup">
+      <button>Sign Up</button>
+    </Link>
     </section>
   );
 };

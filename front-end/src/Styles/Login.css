@@ -1,0 +1,21 @@
+.logo {
+    height: 1em;
+    padding-right: .5em;
+}
+
+.login {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    padding: .5rem;
+    border-radius: 15px;
+}
+
+
+.login-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
