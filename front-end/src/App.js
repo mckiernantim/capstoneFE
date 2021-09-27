@@ -8,6 +8,7 @@ import { Connections } from "./Pages/Connections";
 import { LoginPage } from "./Pages/LoginPage";
 import { Dashboard } from "./Pages/Dashboard";
 import { Edit } from "./Pages/Edit";
+import SignUp from './Components/SignUp'
 // import { UserContext } from "./Providers/UserProvider.js";
 
 // const API = apiURL();
@@ -20,6 +21,9 @@ function App() {
           <Switch>
             <Route exact path="/">
               <LoginPage />
+            </Route>
+            <Route exact path="/signup" >
+              <SignUp />
             </Route>
             <Route path="/connections">
               <Connections />
