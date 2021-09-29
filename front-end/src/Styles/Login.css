@@ -1,3 +1,13 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&family=Nunito:wght@600&family=Rubik:wght@300&display=swap');
+.login-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    min-height: 10rem;
+    font-family: 'Nunito', sans-serif;
+
+}
 .logo {
     height: 1em;
     padding-right: .5em;
@@ -11,11 +21,42 @@
     background-color: white;
     padding: .5rem;
     border-radius: 15px;
+    border-bottom: solid;
+
 }
 
-
-.login-container{
+form{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    min-height: 12rem;
+    
+}
+
+input{
+    width: 12rem;
+    height: 2rem;
+    border-radius: 10px;
+    border: none;
+    text-align: center;
+    border-bottom: solid;
+    margin-top:.5em;
+    
+}
+
+button{
+    border-radius: 10px;
+    padding: .5rem;
+    border:none;
+    border-bottom: solid;
+    margin-top: .5em;
+    background-color:#abdadc;
+    margin-left: 20%;
+    cursor: pointer;
+    
+
+}
+
+span{
+    color: #3c5271;
 }

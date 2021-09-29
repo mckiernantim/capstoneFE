@@ -1,5 +1,5 @@
 body {
-  background-color: lavender;
+  background-color:#f1faee;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -29,10 +29,22 @@ code {
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-height: 80vh;
+    background-color: #457b9d;
+    min-width: 20rem;
   }
+  
+
 
   .Login-msg button {
     width: 55%;
+  }
+
+  .landing-page{
+    display: flex;
+    margin-top: 5rem;
+    
+   
   }
 
   h1, p {

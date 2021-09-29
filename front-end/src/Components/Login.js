@@ -6,6 +6,8 @@ import { signInWithGoogle, signInWithGithub, signInWithEmailAndPassword} from ".
 import { apiURL } from "../util/apiURL";
 import "../Styles/Login.css"
 
+
+
 const API = apiURL();
 
 export const Login = () => {
@@ -42,10 +44,6 @@ export const Login = () => {
   };
 
 
-  // const handleSignOut = async () => {
-  //   signOut();
-  // };
-
   useEffect(() => {
     if (user) {
       addNewUser(user);
@@ -60,43 +58,54 @@ export const Login = () => {
   
   return (
     <section className="Login-msg">
-      <h1>Welcome the Connect App!</h1>
+      <h2>Get Started</h2>
 
       <div className="login-container">
-        <div onClick={handleSignInGoogle} className="login" >
-          <img className="logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" />
-          <div >Continue with Google</div>
+        <div onClick={handleSignInGoogle} className="login">
+          <img
+            className="logo"
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg"
+          />
+          <div>Continue with Google</div>
         </div>
 
         <div onClick={handleSignInGithub} className="login">
-          <img className="logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" />
-          <div >Continue with Github</div>
+          <img
+            className="logo"
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+          />
+          <div>Continue with Github</div>
         </div>
       </div>
-
+      
+      <span>or login with email</span>
 
       <form onSubmit={handleSubmit}>
-        <label htmlFor="email">Email</label>
-        <input 
-          type="email"
-          name="email" 
-          onChange={(e)=> setEmail(e.target.value)}
-          value={email}/>
+        <div>
+          <input
+            type="email"
+            name="email"
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+            placeholder="Enter your email"
+          />
+        </div>
 
-        <label htmlFor="password">Password</label>
-        <input 
-          type="password"
-          name="password"
-          onChange={(e)=> setPassword(e.target.value)}
-          value={password} />
+        <div>
+          <input
+            type="password"
+            name="password"
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
+            placeholder="Enter your password"
+          />
+        </div>
+        <button type="submit">Login</button>
 
-          <button type="submit">
-            Submit
-          </button>
       </form>
-    <Link to = "/signup">
-      <button>Sign Up</button>
-    </Link>
+      <Link to="/signup">
+        <button>Sign Up</button>
+      </Link>
     </section>
   );
 };
