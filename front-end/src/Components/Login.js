@@ -4,6 +4,8 @@ import { useHistory, Link } from "react-router-dom";
 import { UserContext } from "../Providers/UserProvider";
 import { signInWithGoogle, signInWithGithub, signInWithEmailAndPassword} from "../Services/Firebase";
 import { apiURL } from "../util/apiURL";
+import { Button } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 import "../Styles/Login.css"
 
 
@@ -57,8 +59,9 @@ export const Login = () => {
   }
   
   return (
+    <div className="loginbackground">
     <section className="Login-msg">
-      <h2>Get Started</h2>
+      <h2 className="spanmessage">Get Started</h2>
 
       <div className="login-container">
         <div onClick={handleSignInGoogle} className="login">
@@ -78,9 +81,9 @@ export const Login = () => {
         </div>
       </div>
       
-      <span>or login with email</span>
+      <span className="spanmessage">or login with email</span>
 
-      <form onSubmit={handleSubmit}>
+      {/* <form onSubmit={handleSubmit}>
         <div>
           <input
             type="email"
@@ -102,10 +105,30 @@ export const Login = () => {
         </div>
         <button type="submit">Login</button>
 
-      </form>
-      <Link to="/signup">
-        <button>Sign Up</button>
+      </form> */}
+
+<Form onSubmit={handleSubmit}>
+  <Form.Group className="mb-3" controlId="formBasicEmail">
+    <Form.Control type="email" 
+    onChange={(e) => setEmail(e.target.value)}
+    value={email}
+     placeholder="Enter email" />
+  </Form.Group>
+
+  <Form.Group className="mb-3" controlId="formBasicPassword">
+    <Form.Control type="password" 
+    onChange={(e) => setPassword(e.target.value)}
+    value={password}
+    placeholder="Password" />
+  </Form.Group>
+  <Button variant="light" type="submit">
+    Login
+  </Button>
+  <Link to="/signup">
+        <Button variant="light">Sign Up</Button>{''}
       </Link>
+</Form>
     </section>
+    </div>
   );
 };

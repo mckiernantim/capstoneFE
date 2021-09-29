@@ -8,6 +8,10 @@
     font-family: 'Nunito', sans-serif;
 
 }
+body{
+    background:url(https://previews.123rf.com/images/nirut123rf/nirut123rf1702/nirut123rf170200711/71401738-double-exposure-of-businessman-handshake-on-industrial-business-background-connections-concept-eleme.jpg)
+}
+
 .logo {
     height: 1em;
     padding-right: .5em;
@@ -24,6 +28,11 @@
     border-bottom: solid;
 
 }
+
+.spanmessage{
+    color: white;
+}
+
 
 form{
     display: flex;
@@ -57,6 +66,8 @@ button{
 
 }
 
-span{
-    color: #3c5271;
+.Login-msg{
+    display: flex;
+    justify-content: left;
+    align-content: left;
 }
