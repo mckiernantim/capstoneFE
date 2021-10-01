@@ -13,6 +13,9 @@ code {
     monospace;
 }
 
+.connections{
+  background-color: white;
+}
 
 .App {
   display: flex;
@@ -31,6 +34,7 @@ code {
     align-items: center;
     min-height: 80vh;
     background-color: #457b9d;
+    border-radius: 1rem;
     min-width: 20rem;
   }
   
@@ -162,3 +166,40 @@ code {
   td {
     padding: 10px;
   }
+
+
+/* these are buttons on dashboard */
+.buttons{
+  display: flex;
+  justify-content: space-evenly;
+  border-radius: 5%;
+  padding: 1rem;
+  border:none;
+  margin-top: .5em;
+}
+
+.buttons button{
+  border-radius: 2rem;
+  padding: .5rem;
+  cursor: pointer;
+}
+
+.buttons button i{
+  font-size: 1.5rem;
+}
+
+/* dashboard edit css */
+.card h1{
+margin:0;}
+
+.card input{
+  height: 1rem;
+}
+
+.dash-edit-btns button{
+  margin-right: 1rem;
+  border-radius: 2rem;
+  cursor: pointer;
+
+}
+/* -------------- */

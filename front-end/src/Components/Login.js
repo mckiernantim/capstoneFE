@@ -121,11 +121,11 @@ export const Login = () => {
     value={password}
     placeholder="Password" />
   </Form.Group>
-  <Button variant="light" type="submit">
+  <Button className="login-btn"variant="light" type="submit">
     Login
   </Button>
   <Link to="/signup">
-        <Button variant="light">Sign Up</Button>{''}
+        <Button className="login-btn" variant="light">Sign Up</Button>{''}
       </Link>
 </Form>
     </section>
