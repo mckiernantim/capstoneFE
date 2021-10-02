@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link} from "react-router-dom";
 import { UserContext } from "../Providers/UserProvider";
 // import ConnectionsList from "./ConnectionsList.js"
 import { apiURL } from "../util/apiURL";
@@ -103,7 +103,14 @@ const DashboardEdit = () => {
             />
           </p>
           <hr />
+
+          <div className="dash-edit-btns">
+          <Link to="/dashboard">
+            <button ><i class="fas fa-chevron-circle-left"></i></button>
+          </Link>
           <button type="submit">Submit</button>
+
+          </div>
         </div>
       </div>
       </form>

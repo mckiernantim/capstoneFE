@@ -24,27 +24,6 @@ export const DashboardInfo = () => {
     phone_number: "",
   });
 
-  // const [linkedin, setLinkedin] = useState("");
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   setLinkedin(e.target.value);
-
-  // axios.post(`https://secret-temple-11924.herokuapp.com`, {color: color, uid:user.uid})
-  //   axios.post(`http://localhost:3001/users`, {
-  //     linkedin: linkedin,
-  //     uid: user.uid,
-  //   });
-  // };
-
-  // const handleChange = (e) => {
-  //   setLinkedin(e.target.value);
-  // };
-
-  // const deleteSingleUser = async () => {
-  //   axios.delete(`http://localhost:3001/users/${user.uid}`);
-  // };
-  // console.log(deleteSingleUser());
 
   const handleLogout = async () => {
     signOut();
@@ -64,14 +43,13 @@ export const DashboardInfo = () => {
         }
       };
       getSingleUser();
-      // console.log("THIS IS MY NAME:" + userInfo.display_name)
     }
   }, [user, history]);
 
   if (!user) {
     return <div>No User</div>;
   }
-
+  
   return (
     <section className="dashboard">
       <h1 className ="cardName">Welcome to TieIn</h1>
@@ -96,27 +74,22 @@ export const DashboardInfo = () => {
             {userInfo.linkedin ? userInfo.linkedin : "no url found"}
           </p>
           <hr />
-          <Link to="/dashboard/edit">
-          <button>Edit</button>
-          </Link>
-          <button>Flip</button>
-        </div>
       </div>
-      {/* <h1>Welcome {userInfo.display_name}</h1>
-      <img src={userInfo.photo_url} alt={userInfo.display_name} />
-      <p> Email: {userInfo.email}</p>
-      <p>
-        Phone:{" "}
-        {userInfo.phone_number ? userInfo.phone_number : "no number found"}
-      </p>
-      <p>Linkedin: {userInfo.linkedin ? userInfo.linkedin : "no url found"}</p>
-      <p>Twitter: {userInfo.twitter ? userInfo.twitter : "no handle found"}</p> */}
+    </div>
+     
+     <div className="buttons"> 
+        <Link to="/dashboard/edit">
+        <button ><i class="fas fa-edit"></i></button>
+        </Link>
+        <button ><i class="fas fa-redo-alt"></i></button>
       <button onClick={handleLogout}> LOG OUT</button>
-      <a href="/connections">
-        <button>Connections</button>
-      </a>
-      {/* <Card /> */}
-      {/* <ConnectionsList uid = {userInfo.uid}/> */}
+     <Link to="/connections">
+        <button><i class="fas fa-users"></i></button>
+     </Link>
+    
+     </div>
+    
+     
     </section>
   );
 };
