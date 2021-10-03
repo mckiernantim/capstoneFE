@@ -1,4 +1,3 @@
-\c connect;
 INSERT INTO users (
         linkedin,
         twitter,
