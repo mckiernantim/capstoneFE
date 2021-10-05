@@ -57,10 +57,10 @@ const ConnectionsList = () => {
                 return (
                   <tr key={idx} to={`/connections/${id}`}>
                     <td>{display_name}</td>
+                    <td><a href={`mailto:${email}`}>{email}</a></td>
                     <td>
                       <a href={linkedin}>{linkedin}</a>
                     </td>
-                    <td><a href={`mailto:${email}`}>{email}</a></td>
                     <td><a href={twitter}>{twitter}</a></td>
                     <td><a href={`tel:${phone_number}`}>{phone_number}</a></td>
                     <td><button onClick={()=>deleteConnection(uid)}>X</button></td>

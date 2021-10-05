@@ -9,7 +9,8 @@ import { LoginPage } from "./Pages/LoginPage";
 import { Dashboard } from "./Pages/Dashboard";
 import { Edit } from "./Pages/Edit";
 import SignUp from './Components/SignUp'
-
+import ExternalPage  from "./Pages/ExternalPage.js";
+import QRCode from "./Components/QRCode.js";
 // import { UserContext } from "./Providers/UserProvider.js";
 
 // const API = apiURL();
@@ -25,6 +26,12 @@ function App() {
             </Route>
             <Route exact path="/signup" >
               <SignUp />
+            </Route>
+            <Route exact path="/external">
+              <ExternalPage />
+            </Route>
+            <Route exact path="/qrcode">
+              <QRCode />
             </Route>
             <Route path="/connections">
               <Connections />

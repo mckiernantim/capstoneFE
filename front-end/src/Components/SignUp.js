@@ -4,7 +4,7 @@ import { useHistory, Link } from "react-router-dom";
 import { UserContext } from "../Providers/UserProvider";
 import { signUpWithEmailAndPassword } from "../Services/Firebase";
 import { apiURL } from "../util/apiURL";
-
+import "../Styles/Signup.css"
 
 const SignUp =() => {
     const history = useHistory()
@@ -18,9 +18,9 @@ const SignUp =() => {
     }
 
     return(
-        <div>
-            <h1>SIGNUP</h1>
-            <form onSubmit={handleSubmit}>
+        <div className="signup-container">
+            <h1 className="header">Create Account</h1>
+            <form className="signup" onSubmit={handleSubmit}>
                 <label htmlFor="email">Email</label>
             <input 
             type="email"
@@ -36,8 +36,10 @@ const SignUp =() => {
             value={password} />
 
             <button type="submit">
-                Submit
+                Sign Up
             </button>
+           
+            <span>Already have an account? <Link to="/">Login</Link></span>
             </form>
         </div>
     )

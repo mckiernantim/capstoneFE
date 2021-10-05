@@ -56,7 +56,7 @@ const DashboardEdit = () => {
       <div className="cardDiv">
         <div className="card">
           <h1 className="cardName">
-            <label>Name:</label>
+            <label>Name</label>
             <input
               id="display_name"
               className="name"
@@ -68,7 +68,7 @@ const DashboardEdit = () => {
           </h1>
           <hr />
           <p className="cardPhoneNumber">
-            <label>PhoneNumber:</label>
+            <label>Phone Number </label>
             <input
               id="phone_number"
               className="phone"
@@ -80,7 +80,7 @@ const DashboardEdit = () => {
           </p>
           <hr />
           <p className="cardEmail">
-            <label>Email:</label>
+            <label>Email </label>
             <input
               id="email"
               className="eMail"
@@ -92,7 +92,7 @@ const DashboardEdit = () => {
           </p>
           <hr />
           <p className="cardWebsite">
-            <label>LinkedIn:</label>
+            <label>LinkedIn </label>
             <input
               id="linkedin"
               className="webSite"
@@ -103,17 +103,17 @@ const DashboardEdit = () => {
             />
           </p>
           <hr />
+        </div>
+      </div>
 
+      </form>
           <div className="dash-edit-btns">
           <Link to="/dashboard">
             <button ><i class="fas fa-chevron-circle-left"></i></button>
           </Link>
-          <button type="submit">Submit</button>
+          <button type="submit"><i class="fas fa-check"></i></button>
 
           </div>
-        </div>
-      </div>
-      </form>
     </section>
   );
 };
