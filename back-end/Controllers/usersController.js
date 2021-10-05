@@ -43,6 +43,20 @@ users.get("/:id", async (req, res) => {
   }
 });
 
+//SHOW ROUTE FOR ONLY DISPLAY CARD AFTER SCANNING QR SCODE 
+
+// users.use(express.static(__dirname))
+users.get("/:id/card", async (req, res) => {
+  try {
+    const user = await getUserById(req.params.id);
+    res.send(`<html><h2>${user.payload.display_name}</h2></html>`);
+    // res.sendFile(path.join(__dirname, '../index.html'))
+  } catch (error) {
+    return error;
+
+  }
+})
+
 // UPDATE
 users.put("/:id", async (req, res) => {
   try {
