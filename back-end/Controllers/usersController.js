@@ -50,7 +50,6 @@ users.get("/:id/card", async (req, res) => {
   try {
     const user = await getUserById(req.params.id);
     res.send(`<html><h2>${user.payload.display_name}</h2></html>`);
-    // res.sendFile(path.join(__dirname, '../index.html'))
   } catch (error) {
     return error;
 
