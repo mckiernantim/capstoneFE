@@ -17,7 +17,7 @@ const QrCode = () => {
     const generateQR = async ()=>{
         
         try {
-            QRCode.toDataURL(`https://dry-savannah-93616.herokuapp.com/users/${user.uid}`).then((data) =>{
+            QRCode.toDataURL(`https://dry-savannah-93616.herokuapp.com/users/${user.uid}/card`).then((data) =>{
                 setSrc(data)
             })
             
