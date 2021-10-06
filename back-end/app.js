@@ -3,12 +3,14 @@ const cors = require("cors");
 const express = require("express");
 const usersController = require("./Controllers/usersController");
 const connectionsController = require('./Controllers/connectionsController')
+
 // CONFIGURATION
 const app = express();
 
 // MIDDLEWARE
 app.use(cors());
 app.use(express.json()); // Parse incoming JSON
+app.set('view engine', 'pug');
 
 // ROUTES
 app.use("/users", usersController);

@@ -1,5 +1,7 @@
 const express = require("express");
 const users = express.Router();
+// const pug = require('pug');
+
 const {
   addUser,
   getUsers,
@@ -42,6 +44,17 @@ users.get("/:id", async (req, res) => {
     return error;
   }
 });
+
+//SHOW ROUTE FOR ONLY DISPLAY CARD AFTER SCANNING QR SCODE 
+users.get("/:id/card", async (req, res) => {
+  try {
+    const user = await getUserById(req.params.id);
+    res.render('index',{card:user.payload} )
+  } catch (error) {
+    return error;
+
+  }
+})
 
 // UPDATE
 users.put("/:id", async (req, res) => {
