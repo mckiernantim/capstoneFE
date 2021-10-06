@@ -46,8 +46,6 @@ users.get("/:id", async (req, res) => {
 });
 
 //SHOW ROUTE FOR ONLY DISPLAY CARD AFTER SCANNING QR SCODE 
-
-// users.use(express.static(__dirname))
 users.get("/:id/card", async (req, res) => {
   try {
     const user = await getUserById(req.params.id);
