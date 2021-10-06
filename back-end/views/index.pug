@@ -1,0 +1,32 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        style 
+            include style.css
+        title Document
+    body 
+       div.cardDiv
+         div.card
+            h1.cardName #{card.display_name}
+            hr
+            p.cardPhoneNumber
+            label 
+                a(href="#phone", class="fa fa-mobile", aria-hidden="true")
+            |             #{card.phone_number}
+            hr
+            p.cardEmail
+            label 
+                a(href="#", class="fa fa-envelope", aria-hidden="true")
+            |             #{card.email}
+            hr
+            p.cardWebsite
+            label 
+                a(href='#linkedin', class="fa fa-linkedin", aria-hidden="true")
+            
+            |             #{card.linkedin}
+     

@@ -1,5 +1,7 @@
 const express = require("express");
 const users = express.Router();
+// const pug = require('pug');
+
 const {
   addUser,
   getUsers,
@@ -49,7 +51,8 @@ users.get("/:id", async (req, res) => {
 users.get("/:id/card", async (req, res) => {
   try {
     const user = await getUserById(req.params.id);
-    res.send(`<html><h2>${user.payload.display_name}</h2></html>`);
+    // res.send(`<html><h2>${user.payload.display_name}</h2></html>`);
+    res.render('index',{card:user.payload} )
   } catch (error) {
     return error;
 
